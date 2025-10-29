@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,49 +11,50 @@
             box-sizing: border-box;
         }
 
-        body {
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
             font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
+        }
+
+        body {
             background: #0a1628;
             color: #fff;
+            position: relative;
         }
 
         header {
-            position: fixed;
+            position: absolute;
             top: 0;
             width: 100%;
-            padding: 20px 50px;
+            padding: 25px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            transition: all 0.3s;
-            background: rgba(10, 22, 40, 0.8);
+            background: rgba(10, 22, 40, 0.3);
             backdrop-filter: blur(10px);
-        }
-
-        header.scrolled {
-            background: rgba(10, 22, 40, 0.95);
-            padding: 15px 50px;
         }
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 700;
             color: #7ab8eb;
             cursor: pointer;
+            text-shadow: 0 2px 10px rgba(122, 184, 235, 0.3);
         }
 
         nav {
             display: flex;
-            gap: 35px;
+            gap: 40px;
         }
 
         nav a {
             color: #e8f1f8;
             text-decoration: none;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 400;
             transition: all 0.3s;
             position: relative;
@@ -77,6 +77,7 @@
 
         .hero {
             height: 100vh;
+            width: 100vw;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -98,8 +99,8 @@
         .raindrop {
             position: absolute;
             width: 2px;
-            height: 50px;
-            background: linear-gradient(to bottom, transparent, rgba(122, 184, 235, 0.3));
+            height: 60px;
+            background: linear-gradient(to bottom, transparent, rgba(122, 184, 235, 0.4));
             animation: fall linear infinite;
         }
 
@@ -114,13 +115,13 @@
             z-index: 10;
             max-width: 900px;
             padding: 0 20px;
-            animation: fadeInUp 1s ease-out;
+            animation: fadeInUp 1.2s ease-out;
         }
 
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -130,48 +131,50 @@
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 72px;
+            font-size: 96px;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: #e8f1f8;
-            text-shadow: 0 2px 20px rgba(122, 184, 235, 0.3);
+            text-shadow: 0 4px 30px rgba(122, 184, 235, 0.4);
+            letter-spacing: 2px;
         }
 
         .hero p {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 300;
             color: #b8d4ea;
-            margin-bottom: 40px;
-            letter-spacing: 1px;
+            margin-bottom: 50px;
+            letter-spacing: 2px;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 20px;
+            gap: 25px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 16px 40px;
+            padding: 18px 45px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 500;
-            font-size: 16px;
-            transition: all 0.3s;
+            font-size: 18px;
+            transition: all 0.4s;
             display: inline-block;
             cursor: pointer;
+            border: none;
         }
 
         .btn-primary {
             background: linear-gradient(135deg, #7ab8eb 0%, #5a9dd5 100%);
             color: #fff;
-            box-shadow: 0 10px 30px rgba(122, 184, 235, 0.3);
+            box-shadow: 0 10px 40px rgba(122, 184, 235, 0.4);
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(122, 184, 235, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(122, 184, 235, 0.5);
         }
 
         .btn-secondary {
@@ -181,124 +184,20 @@
         }
 
         .btn-secondary:hover {
-            background: rgba(122, 184, 235, 0.1);
-            transform: translateY(-3px);
-        }
-
-        .features {
-            padding: 120px 50px;
-            background: #0f1f36;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .section-title h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            color: #e8f1f8;
-            margin-bottom: 15px;
-        }
-
-        .section-title p {
-            font-size: 18px;
-            color: #8fa9c4;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .feature-card {
-            background: rgba(26, 47, 74, 0.5);
-            border-radius: 20px;
-            padding: 40px;
-            transition: all 0.4s;
-            border: 1px solid rgba(122, 184, 235, 0.1);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            background: rgba(26, 47, 74, 0.8);
-            border-color: rgba(122, 184, 235, 0.3);
-            box-shadow: 0 20px 60px rgba(122, 184, 235, 0.2);
-        }
-
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #7ab8eb 0%, #5a9dd5 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 25px;
-            font-size: 32px;
-        }
-
-        .feature-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 26px;
-            margin-bottom: 15px;
-            color: #e8f1f8;
-        }
-
-        .feature-card p {
-            color: #8fa9c4;
-            line-height: 1.7;
-            font-size: 16px;
-        }
-
-        .stats {
-            padding: 100px 50px;
-            background: linear-gradient(135deg, #1a2f4a 0%, #0a1628 100%);
-            text-align: center;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 50px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .stat-item h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 56px;
-            color: #7ab8eb;
-            margin-bottom: 10px;
-        }
-
-        .stat-item p {
-            font-size: 18px;
-            color: #8fa9c4;
-        }
-
-        footer {
-            padding: 50px;
-            text-align: center;
-            background: #0a1628;
-            border-top: 1px solid rgba(122, 184, 235, 0.1);
-        }
-
-        footer p {
-            color: #8fa9c4;
-            margin-bottom: 10px;
+            background: rgba(122, 184, 235, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(122, 184, 235, 0.2);
         }
 
         .scroll-indicator {
             position: absolute;
-            bottom: 30px;
+            bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
             animation: bounce 2s infinite;
+            font-size: 28px;
+            color: #7ab8eb;
+            cursor: pointer;
         }
 
         @keyframes bounce {
@@ -306,49 +205,147 @@
                 transform: translateX(-50%) translateY(0);
             }
             40% {
-                transform: translateX(-50%) translateY(-10px);
+                transform: translateX(-50%) translateY(-15px);
             }
             60% {
-                transform: translateX(-50%) translateY(-5px);
+                transform: translateX(-50%) translateY(-8px);
             }
         }
 
-        .scroll-indicator::before {
-            content: '↓';
-            font-size: 24px;
-            color: #7ab8eb;
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .float {
+            position: absolute;
+            opacity: 0.1;
+            animation: floating 20s infinite ease-in-out;
+        }
+
+        .float1 {
+            width: 80px;
+            height: 80px;
+            background: #7ab8eb;
+            border-radius: 50%;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .float2 {
+            width: 60px;
+            height: 60px;
+            background: #5a9dd5;
+            border-radius: 50%;
+            top: 60%;
+            right: 15%;
+            animation-delay: 5s;
+        }
+
+        .float3 {
+            width: 100px;
+            height: 100px;
+            background: #7ab8eb;
+            border-radius: 50%;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 10s;
+        }
+
+        @keyframes floating {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(30px, -30px) scale(1.1);
+            }
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            background: rgba(10, 22, 40, 0.5);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        footer p {
+            color: #8fa9c4;
+            font-size: 14px;
+            margin: 5px 0;
         }
 
         @media (max-width: 768px) {
             header {
-                padding: 15px 20px;
+                padding: 20px 25px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .logo {
+                font-size: 24px;
             }
 
             nav {
                 gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav a {
                 font-size: 14px;
             }
 
             .hero h1 {
-                font-size: 42px;
+                font-size: 48px;
+            }
+
+            .hero p {
+                font-size: 20px;
+            }
+
+            .btn {
+                padding: 14px 35px;
+                font-size: 16px;
+            }
+
+            .cta-buttons {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 36px;
             }
 
             .hero p {
                 font-size: 18px;
             }
 
-            .features, .stats {
-                padding: 60px 20px;
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+                padding: 0 20px;
             }
 
-            .section-title h2 {
-                font-size: 36px;
+            .btn {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <header id="header">
+    <header>
         <div class="logo">Rainy Days</div>
         <nav>
             <a href="#home">Home</a>
@@ -362,86 +359,39 @@
     </header>
 
     <section class="hero">
+        <div class="floating-elements">
+            <div class="float float1"></div>
+            <div class="float float2"></div>
+            <div class="float float3"></div>
+        </div>
         <div class="rain-container" id="rainContainer"></div>
         <div class="hero-content">
             <h1>Rainy Days</h1>
             <p>Leave a drop. Read the rain.</p>
             <div class="cta-buttons">
-                <a href="#write" class="btn btn-primary">Write a Raindrop</a>
-                <a href="#read" class="btn btn-secondary">Read The Rain</a>
+                <button class="btn btn-primary">Write a Raindrop</button>
+                <button class="btn btn-secondary">Read The Rain</button>
             </div>
         </div>
-        <div class="scroll-indicator"></div>
-    </section>
-
-    <section class="features">
-        <div class="section-title">
-            <h2>A Space for Connection</h2>
-            <p>Share your thoughts, offer support, and find comfort in community</p>
-        </div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">💧</div>
-                <h3>Completely Anonymous</h3>
-                <p>Your privacy matters. Share your thoughts without revealing your identity. Every drop is secure and untraceable.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🌧️</div>
-                <h3>Read & Reflect</h3>
-                <p>Scroll through raindrops from others. Find comfort knowing you're not alone, and discover stories that resonate with yours.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">💙</div>
-                <h3>Express Freely</h3>
-                <p>Share your feelings, thoughts, or words of encouragement. Whether it's hope, gratitude, or support—your voice matters.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="stats">
-        <div class="stats-grid">
-            <div class="stat-item">
-                <h3>10,000+</h3>
-                <p>Raindrops Shared</p>
-            </div>
-            <div class="stat-item">
-                <h3>5,000+</h3>
-                <p>Stories Read</p>
-            </div>
-            <div class="stat-item">
-                <h3>100%</h3>
-                <p>Anonymous & Safe</p>
-            </div>
-        </div>
+        <div class="scroll-indicator">↓</div>
     </section>
 
     <footer>
         <p>© 2023 Rainy Days</p>
-        <p>Created with care for those who need it</p>
-        <p style="font-size: 14px; margin-top: 20px; font-style: italic;">"Leave a drop. Read a dream. Feel the rain."</p>
+        <p style="font-style: italic;">"Leave a drop. Read a dream. Feel the rain."</p>
     </footer>
 
     <script>
         // Rain animation
         const rainContainer = document.getElementById('rainContainer');
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 80; i++) {
             const drop = document.createElement('div');
             drop.className = 'raindrop';
             drop.style.left = Math.random() * 100 + '%';
             drop.style.animationDuration = (Math.random() * 1 + 0.5) + 's';
-            drop.style.animationDelay = Math.random() * 2 + 's';
+            drop.style.animationDelay = Math.random() * 3 + 's';
             rainContainer.appendChild(drop);
         }
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
     </script>
 </body>
 </html>
